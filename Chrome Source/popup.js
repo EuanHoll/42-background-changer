@@ -1,32 +1,38 @@
+
 document.addEventListener("DOMContentLoaded", function(event) {
+	
 	var resultsButton = document.getElementById("BackgroundSwitch");
 	resultsButton.addEventListener('click', onSwitch);
-	if (localStorage.getItem("thelink") == null)
-	{
-		localStorage.setItem("thelink", "Set Link");
+
+	try {
+		chrome.storage.local.get("thelink");
+	} catch (error) {
+		InitalSet();
 	}
-	chrome.runtime.sendMesage({greeting:"OnOff-Get"}, SetSwitch);
-	document.getElementById("linkin").value = localStorage.getItem("thelink");
+	chrome.storage.local.get("OnOff", GetSwitch);
+	chrome.storage.local.get("thelink", SetTexbox);
 });
 
-function SetSwitch(seter)
+function InitalSet()
 {
-	if (seter == "true")
-	{
-		document.querySelector('#checkbox').checked = true;
-	}
-	else
-	{
-		document.querySelector('#checkbox').checked = false;
-	}
+	chrome.storage.local.set({"thelink":"Set Link"});
+}
+
+function GetSwitch(sValue)
+{
+	document.querySelector('#checkbox').checked = sValue.OnOff;
+}
+
+function SetTexbox(sValue)
+{
+	document.getElementById("linkin").value = sValue.thelink;
 }
 
 function onSwitch()
 {
-	chrome.runtime.sendMesage({greeting:"OnOff-Set:" + document.querySelector('#checkbox').checked});
-	localStorage.setItem("OnOff", document.querySelector('#checkbox').checked);
+	chrome.storage.local.set({"OnOff":document.querySelector('#checkbox').checked});
 	if (document.getElementById("linkin") != null)
 	{
-		localStorage.setItem("thelink", document.getElementById("linkin").value);
+		chrome.storage.local.set({"thelink":document.getElementById("linkin").value});
 	}
 }
