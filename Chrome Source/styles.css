@@ -1,0 +1,14 @@
+.profile-banner-custom
+{
+	background-position: 50% 50%;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-image: url(https://media0.giphy.com/media/xT9IgN8YKRhByRBzMI/giphy.gif?cid=790b76115cd957427361537777ccfa45&rid=giphy.gif);
+    background-size: cover;
+    color: #fff;
+    -webkit-flex-grow: 1;
+    -moz-flex-grow: 1;
+    flex-grow: 1;
+    -ms-flex-positive: 1;
+
+}
