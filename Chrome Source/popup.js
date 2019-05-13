@@ -3,18 +3,13 @@ document.addEventListener("DOMContentLoaded", function(event) {
 	
 	var resultsButton = document.getElementById("BackgroundSwitch");
 	resultsButton.addEventListener('click', onSwitch);
-
-	try {
-		chrome.storage.local.get("thelink");
-	} catch (error) {
-		InitalSet();
-	}
 	chrome.storage.local.get("OnOff", GetSwitch);
 	chrome.storage.local.get("thelink", SetTexbox);
 });
 
 function InitalSet()
 {
+	alert("Here");
 	chrome.storage.local.set({"thelink":"Set Link"});
 }
 
@@ -31,7 +26,7 @@ function SetTexbox(sValue)
 function onSwitch()
 {
 	chrome.storage.local.set({"OnOff":document.querySelector('#checkbox').checked});
-	if (document.getElementById("linkin") != null)
+	if (document.getElementById("linkin").value != null)
 	{
 		chrome.storage.local.set({"thelink":document.getElementById("linkin").value});
 	}

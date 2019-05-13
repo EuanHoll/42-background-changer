@@ -1,5 +1,5 @@
 {
-    "name": "42 Background Changer",
+    "name": "Pimp Your 42",
     "version": "1.0",
 	"description": "Used to change the background of 42 profiles",
 	"content_security_policy":"script-src 'self' https://apis.google.com; object-src 'self'",
