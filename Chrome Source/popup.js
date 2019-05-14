@@ -3,8 +3,13 @@ document.addEventListener("DOMContentLoaded", function(event) {
 	
 	var resultsButton = document.getElementById("BackgroundSwitch");
 	resultsButton.addEventListener('click', onSwitch);
+	var text = document.getElementById("linkin");
+	text.addEventListener('change', onChange);
+	var colourPicker = document.getElementById("colourpicker");
+	colourPicker.addEventListener('change', onColourChange);
 	chrome.storage.local.get("OnOff", GetSwitch);
 	chrome.storage.local.get("thelink", SetTexbox);
+	chrome.storage.local.get("colourP", SetColourPicker);
 });
 
 function InitalSet()
@@ -21,6 +26,23 @@ function GetSwitch(sValue)
 function SetTexbox(sValue)
 {
 	document.getElementById("linkin").value = sValue.thelink;
+}
+
+function SetColourPicker(sValue)
+{
+	document.getElementById("colourpicker").value = sValue.colourP;
+}
+
+function onChange()
+{
+	var text = document.getElementById("linkin");
+	chrome.storage.local.set({"thelink":text.value});
+}
+
+function onColourChange()
+{
+	var colourPicker = document.getElementById("colourpicker");
+	chrome.storage.local.set({"colourP":colourPicker.value});
 }
 
 function onSwitch()
