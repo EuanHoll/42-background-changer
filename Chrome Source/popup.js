@@ -1,6 +1,6 @@
 
 document.addEventListener("DOMContentLoaded", function(event) {
-	
+	InitalSet();
 	var resultsButton = document.getElementById("BackgroundSwitch");
 	resultsButton.addEventListener('click', onSwitch);
 	var text = document.getElementById("linkin");
@@ -14,8 +14,24 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 function InitalSet()
 {
-	alert("Here");
-	chrome.storage.local.set({"thelink":"Set Link"});
+	chrome.storage.local.get("thelink", InitalString);
+	chrome.storage.local.get("colourP", InitalColourPicker);
+}
+
+function InitalColourPicker(sValue)
+{
+	if (sValue.colourP == "undefined")
+	{
+		chrome.storage.local.set({"colourP":"#f907f1"});
+	}
+}
+
+function InitalString(sValue)
+{
+	if (sValue.thelink == "undefined")
+	{
+		chrome.storage.local.set({"thelink":"Set Link"});
+	}
 }
 
 function GetSwitch(sValue)
