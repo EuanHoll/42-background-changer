@@ -10,7 +10,7 @@
 	 }],
 	 "permissions" : ["storage"],
 	 "browser_action": {
-		"default_icon": "icon.png",
+		"default_icon": "pm42.png",
 		"default_popup": "popup.html"
 	   },
     "manifest_version": 2
