@@ -5,6 +5,10 @@
 <title>Page Title</title>
 <style>
 
+body{
+  width: 300px;
+}
+
 .center{
 	text-align:center;
 }
@@ -70,18 +74,23 @@ input:checked + .slider:before {
 }
 
 </style>
+<script src="jquery-3.4.1.min.js"></script>
+<script src='jscolor.js'></script>
+<link rel='stylesheet' href='spectrum.css' />
 </head>
 <body>
 <h1 class = "center">Settings</h1>
-<div>
+<div class = "center">
 		<div id="result"></div>
 <a>Custom Background</a>
 <label id="BackgroundSwitch" class="switch" >
 	<input id="checkbox" type="checkbox">
 	<span class="slider round"></span>
 </label>
-<input type="text" id="linkin">Type Link Here</input>
-<input type="color" id="colourpicker">Pick Colour</input>
+<br><br>Type Link Here <br>
+<input type="text" id="linkin"></input>
+<br><br><a>Choose colour</a>
+<input type="text" class="jscolor" id="colourP"></input>
 </div>
 </body>
 </html>

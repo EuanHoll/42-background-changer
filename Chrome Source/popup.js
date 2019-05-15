@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 	resultsButton.addEventListener('click', onSwitch);
 	var text = document.getElementById("linkin");
 	text.addEventListener('change', onChange);
-	var colourPicker = document.getElementById("colourpicker");
+	var colourPicker = document.getElementById("colourP");
 	colourPicker.addEventListener('change', onColourChange);
 	chrome.storage.local.get("OnOff", GetSwitch);
 	chrome.storage.local.get("thelink", SetTexbox);
@@ -46,7 +46,7 @@ function SetTexbox(sValue)
 
 function SetColourPicker(sValue)
 {
-	document.getElementById("colourpicker").value = sValue.colourP;
+	document.getElementById("colourP").value = sValue.colourP;
 }
 
 function onChange()
@@ -57,7 +57,7 @@ function onChange()
 
 function onColourChange()
 {
-	var colourPicker = document.getElementById("colourpicker");
+	var colourPicker = document.getElementById("colourP");
 	chrome.storage.local.set({"colourP":colourPicker.value});
 }
 

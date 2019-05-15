@@ -5,7 +5,7 @@
 	"content_security_policy":"script-src 'self' https://apis.google.com; object-src 'self'",
 	"content_scripts": [{
 		"css": ["styles.css"],
-		"js": ["jquery-3.4.1.min.js","content.js"],
+		"js": ["jquery-3.4.1.min.js", "content.js"],
 		"matches": ["https://profile.intra.42.fr/"]
 	 }],
 	 "permissions" : ["storage"],
